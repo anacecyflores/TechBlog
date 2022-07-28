@@ -1,6 +1,6 @@
 {
-    "title": "Tech Blog",
-    "name": "TechBlog",
+    "title": "Modern Business",
+    "name": "startbootstrap-modern-business",
     "version": "5.0.6",
     "scripts": {
         "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
