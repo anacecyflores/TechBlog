@@ -2,30 +2,37 @@ const router = require("express").Router();
 const { Comment, User } = require("../models");
 const withAuth = require("../utils/auth");
 
-// router.get("/", async (req, res) => {
-//   try {
-//     // Get all comments and JOIN with user data
-//     const commentData = await Comment.findAll({
-//       include: [
-//         {
-//           model: User,
-//           attributes: ["name"],
-//         },
-//       ],
-//     });
+// router.get("/blog", (req, res) => res.render("blog"));
 
-//     // Serialize data so the template can read it
-//     const comments = commentData.map((comment) => comment.get({ plain: true }));
+router.get("/blog", async (req, res) => {
+  try {
+    const blogData = await Post.findAll({
+      attributes: ["id"],
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ["username"],
+      //   },
+      //   {
+      //     model: Comment,
+      //     attributes: ["id", "comment_content", "user_id", "created_at"],
+      //     include: {
+      //       model: User,
+      //       attributes: ["username"],
+      //     },
+      //   },
+      // ],
+    });
+    const posts = blogData.map((post) => post.get({ plain: true }));
 
-//     // Pass serialized data and session flag into template
-//     res.render("homepage", {
-//       comments,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    res.render("blog", {
+      posts,
+      // logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // router.get("/comments/:id", async (req, res) => {
 //   try {
@@ -80,7 +87,7 @@ const withAuth = require("../utils/auth");
 // });
 
 router.get("/about", (req, res) => res.render("about"));
-router.get("/blog", (req, res) => res.render("blog"));
+// router.get("/blog", (req, res) => res.render("blog"));
 router.get("/contact", (req, res) => res.render("contact"));
 router.get("/home", (req, res) => res.render("home"));
 router.get("/portfolio-overview", (req, res) =>
