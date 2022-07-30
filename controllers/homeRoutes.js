@@ -7,21 +7,21 @@ const withAuth = require("../utils/auth");
 router.get("/blog", async (req, res) => {
   try {
     const blogData = await Post.findAll({
-      attributes: ["id"],
-      // include: [
-      //   {
-      //     model: User,
-      //     attributes: ["username"],
-      //   },
-      //   {
-      //     model: Comment,
-      //     attributes: ["id", "comment_content", "user_id", "created_at"],
-      //     include: {
-      //       model: User,
-      //       attributes: ["username"],
-      //     },
-      //   },
-      // ],
+      attributes: ["id", "user_id", "title", "post_content", "created_at"],
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+        {
+          model: Comment,
+          attributes: ["id", "comment_content", "user_id", "created_at"],
+          include: {
+            model: User,
+            attributes: ["username"],
+          },
+        },
+      ],
     });
     const posts = blogData.map((post) => post.get({ plain: true }));
 
