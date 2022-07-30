@@ -4,7 +4,6 @@
     "version": "5.0.6",
     "scripts": {
         "build:assets": "node scripts/build-assets.js",
-        // "build:pug": "node scripts/build-pug.js",
         "build:scripts": "node scripts/build-scripts.js",
         "build:scss": "node scripts/build-scss.js",
         "start:debug": "npm run build && node scripts/start-debug.js",
@@ -55,7 +54,6 @@
         "postcss": "8.4.12",
         "prettier": "2.6.0",
         "sass": "1.49.9",
-        // "shelljs": "0.8.5",
         "upath": "2.0.1"
     }
 }
