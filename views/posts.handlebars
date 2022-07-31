@@ -1,0 +1,48 @@
+<link href="/css/styles.css" rel="stylesheet" />
+<section class="vh-100">
+  <div class="card post">
+    <div class="card-body">
+      <div class="card-title d-flex justify-content-between flex-row">
+        <h2 class="column" id="comment-id" data-id="{{id}}">{{title}}</h2>
+        <p class="card-subtitle">Posted by {{user_id}} {{user.username}} <br> on {{format_date created_at}}</p>
+      </div>
+      <p class="card-body">
+        {{post_content}}
+      </p>
+    </div>
+  </div>
+
+  {{#each comments as |comment|}}
+  <div class="card comment">
+    <div class="card-body">
+      <div class="meta text-muted">
+        commented by {{user.username}} on {{format_date created_at}}
+      </div>
+      <div class="text">
+        {{comment_content}}
+      </div>
+      {{#if (compare user_id ../user)}}
+      <button class="btn btn-danger delete-btn" id="delete-btn" data-id="{{comment.id}}">Delete Comment</button>
+      {{/if}}
+    </div>
+  </div>
+  {{/each}}
+
+  {{#if logged_in}}
+  <div class="container">
+    <form class="comment-form col-md-5">
+      <h4 style="color:white">Post a comment</h4>
+      <div class="mb-3">
+        <textarea name="comment-body" id="comment-content" class="input-box"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <button type="submit" class="btn btn-dark">Post Comment</button>
+      </div>
+    </form>
+  </div>
+  {{/if}}
+  
+  <script src="/js/comment.js"></script>
+  <script src="/js/destroy.js"></script>
+</section>

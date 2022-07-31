@@ -3,16 +3,16 @@ const { Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 router.post("/", withAuth, async (req, res) => {
-  try {
-    const newComment = await Comment.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
+  Comment.create({
+    comment_content: req.body.commentContent,
+    post_id: req.body.postId,
+    user_id: req.session.user_id,
+  })
+    .then((cData) => res.json(cData))
 
-    res.status(200).json(newComment);
-  } catch (err) {
-    res.status(400).json(err);
-  }
+    .catch((err) => {
+      res.status(400).json(err);
+    });
 });
 
 router.delete("/:id", withAuth, async (req, res) => {
@@ -25,7 +25,7 @@ router.delete("/:id", withAuth, async (req, res) => {
     });
 
     if (!commentsData) {
-      res.status(404).json({ message: "No comment found with this id!" });
+      res.status(404).json({ message: "No comment found!" });
       return;
     }
 

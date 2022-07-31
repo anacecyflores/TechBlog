@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Comment, User } = require("../models");
+const { Comment, User, Post } = require("../models");
 const withAuth = require("../utils/auth");
 
 // router.get("/blog", (req, res) => res.render("blog"));
@@ -33,6 +33,47 @@ router.get("/blog", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//-------------individual posts--------------------
+router.get("/post/:id", async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      attributes: ["id", "user_id", "title", "post_content", "created_at"],
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+        {
+          model: Comment,
+          attributes: [
+            "id",
+            "comment_content",
+            "post_id",
+            "user_id",
+            "created_at",
+          ],
+          include: {
+            model: User,
+            attributes: ["username"],
+          },
+        },
+      ],
+    });
+
+    const post = postData.get({ plain: true });
+
+    res.render("posts", {
+      ...post,
+      logged_in: req.session.logged_in,
+      user: req.session.user_id,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//-------------individual posts end--------------------
 
 // router.get("/comments/:id", async (req, res) => {
 //   try {
@@ -76,15 +117,15 @@ router.get("/blog", async (req, res) => {
 //   }
 // });
 
-// router.get("/login", (req, res) => {
-//   // If the user is already logged in, redirect the request to another route
-//   if (req.session.logged_in) {
-//     res.redirect("about");
-//     return;
-//   }
+router.get("/login", (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect("about");
+    return;
+  }
 
-//   res.render("login");
-// });
+  res.render("login");
+});
 
 router.get("/about", (req, res) => res.render("about"));
 // router.get("/blog", (req, res) => res.render("blog"));
