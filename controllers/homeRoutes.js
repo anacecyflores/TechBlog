@@ -34,6 +34,23 @@ router.get("/blog", async (req, res) => {
   }
 });
 
+router.get("/home", (req, res) => {
+  res.render("home", {
+    logged_in: req.session.logged_in,
+  });
+});
+
+router.get("/about", (req, res) => {
+  res.render("about", {
+    logged_in: req.session.logged_in,
+  });
+});
+router.get("/portfolio-overview", (req, res) => {
+  res.render("portfolio-overview", {
+    logged_in: req.session.logged_in,
+  });
+});
+
 //-------------individual posts--------------------
 router.get("/post/:id", async (req, res) => {
   try {
@@ -76,12 +93,6 @@ router.get("/post/:id", async (req, res) => {
 //-------------individual posts end--------------------
 
 router.get("/login", (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect("about");
-    return;
-  }
-
   res.render("login");
 });
 
