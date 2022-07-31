@@ -12,36 +12,56 @@
                     </div>
                     <div class="row gx-5 justify-content-center">
                         <div class="col-lg-8 col-xl-6">
-                    
-                            <form id="contactForm" >
+                
 
                                 <!-- Post title input-->
                                 <div class="form-floating mb-3">
-                                    <input class="form-control" id="name" type="text" placeholder="Enter the title..."
-                                        data-sb-validations="required" />
+                                    <input class="form-control" id="title" type="text" placeholder="Enter the title..." />
                                     <label for="name">Post Title</label>
-                                    <div class="invalid-feedback" data-sb-feedback="name:required">A title is required.
+                                    <div class="invalid-feedback" >A title is required.
                                     </div>
                                 </div>
-                                <!-- Message input-->
+                                <!-- Post input-->
                                 <div class="form-floating mb-3">
-                                    <textarea class="form-control" id="message" type="text"
+                                    <textarea class="form-control" id="post-content" type="text"
                                         placeholder="Enter your message here..." style="height: 10rem"
-                                        data-sb-validations="required"></textarea>
-                                    <label for="message">Message</label>
-                                    <div class="invalid-feedback" data-sb-feedback="message:required">A message is
+                                    ></textarea>
+                                    <label for="message">Enter Post</label>
+                                    <div class="invalid-feedback" >A post is
                                         required.</div>
                                 </div>
                                 <div class="d-none" id="submitErrorMessage">
                                     <div class="text-center text-danger mb-3">Error posting!</div>
                                 </div>
                                 <!-- Submit Button-->
-                                <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton"
+                                <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton"
                                         type="submit">Submit</button></div>
-                            </form>
                         </div>
                     </div>
                 </div>
+                {{!-- <--------------mb-------------> --}}
+                    <div class="border-4 border-dashed border-gray-200 rounded-lg h-full">
+                        <h2 style="color:blue">All Posts</h2>
+                        <br><br>
+                        {{#each posts as |post|}}
+                        <div class="post">
+                            <h3 class="ml-4 mt-4 ext-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-3xl post-title"
+                                value="post_title"><a href="post/{{id}}">{{title}}</a></h3>
+                            <p>by {{user.username}} on {{format_date created_at}}</p>
+                            <p class="ml-4 post-employer text-base text-indigo-600 font-semibold tracking-wide" value="post-content">
+                                {{post_content}}</p>
+                            <a href="post/{{id}}">comments: {{comments.length}}</a>
+                
+                            <div class="ml-4 tech">
+                
+                                <small></span></small>
+                            </div>
+                        </div>
+                        {{else}}
+                        <p class="mt-2 ml-2 text-2xl leading-8 tracking-tight text-gray-900 sm:text-2xl">No posts to display</p>
+                        {{/each}}
+                    </div>
+                    {{!-- <--------------mb-------------> --}}
                 <!-- Contact cards-->
                 <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
                     <div class="col">
@@ -66,5 +86,6 @@
             </div>
         </section>
 
-   
+    <script src="/js/createPost.js"></script>
+    <script src="/js/deletePost.js"></script>
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>

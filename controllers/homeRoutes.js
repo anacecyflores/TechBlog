@@ -27,7 +27,7 @@ router.get("/blog", async (req, res) => {
 
     res.render("blog", {
       posts,
-      // logged_in: req.session.logged_in,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -61,10 +61,10 @@ router.get("/post/:id", async (req, res) => {
       ],
     });
 
-    const post = postData.get({ plain: true });
+    const posts = postData.get({ plain: true });
 
     res.render("posts", {
-      ...post,
+      ...posts,
       logged_in: req.session.logged_in,
       user: req.session.user_id,
     });
@@ -74,48 +74,6 @@ router.get("/post/:id", async (req, res) => {
 });
 
 //-------------individual posts end--------------------
-
-// router.get("/comments/:id", async (req, res) => {
-//   try {
-//     const commentData = await Comment.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ["name"],
-//         },
-//       ],
-//     });
-
-//     const comment = commentData.get({ plain: true });
-
-//     res.render("comments", {
-//       ...comment,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
-
-// // Use withAuth middleware to prevent access to route
-// router.get("/profile", withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in user based on the session ID
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ["password"] },
-//       include: [{ model: Comment }],
-//     });
-
-//     const user = userData.get({ plain: true });
-
-//     res.render("comments", {
-//       ...user,
-//       logged_in: true,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -127,11 +85,4 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-router.get("/about", (req, res) => res.render("about"));
-// router.get("/blog", (req, res) => res.render("blog"));
-router.get("/contact", (req, res) => res.render("contact"));
-router.get("/home", (req, res) => res.render("home"));
-router.get("/portfolio-overview", (req, res) =>
-  res.render("portfolio-overview")
-);
 module.exports = router;
