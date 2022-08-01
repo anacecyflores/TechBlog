@@ -2,6 +2,8 @@
     "title": "Modern Business",
     "name": "startbootstrap-modern-business",
     "version": "5.0.6",
+    "engines": {
+    "node": "16.x"},
     "scripts": {
         "build:assets": "node scripts/build-assets.js",
         "build:scripts": "node scripts/build-scripts.js",
