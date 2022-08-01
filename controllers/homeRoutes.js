@@ -34,7 +34,7 @@ router.get("/blog", async (req, res) => {
   }
 });
 
-router.get("/", (req, res) => {
+router.get("/home", (req, res) => {
   res.render("home", {
     logged_in: req.session.logged_in,
   });
