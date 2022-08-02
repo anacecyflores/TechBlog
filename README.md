@@ -23,7 +23,6 @@
 
 ## Description
 
-
 <br>
 <br>
 
@@ -62,16 +61,18 @@ run npm seed
 ## Screenshots
 
 <br>
-<img src="/public/assets/" alt="login page" >
+<img src="public/assets/about1.png" alt="About Page 1" >
 <br>
 <br>
-<img src="/public/assets/" alt="home page" >
+<img src="public/assets/about2.png" alt="About Page 1" >
 <br>
 <br>
-<img src="/public/assets/" alt="dashboard page" >
+<img src="public/assets/blogpage.png" alt="blog page" >
 <br>
 <br>
-<img src="/public/assets/" alt="individual post page">
+<img src="public/assets/home.png" alt="home page">
+<br>
+<img src="public/assets/portfolio.png" alt="portfolio page">
 <br>
 
 ## Technologies Used
@@ -91,16 +92,17 @@ run npm seed
 <br>
 
 ## Credits
- bootstrap name: startbootstrap-modern-business <br>
-    version": "5.0.6"
+
+bootstrap name: startbootstrap-modern-business <br>
+version": "5.0.6"
 
 ## Questions
 
 Contact me here:
 
 - [GitHub Profile](https://github.com/anacecyflores1)
-<a href="mailto: anacecyflores1@gmail.com">
-    <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=071A2C" alt="Gmail"/>
+  <a href="mailto: anacecyflores1@gmail.com">
+  <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=071A2C" alt="Gmail"/>
   </a>
 
 <br>
