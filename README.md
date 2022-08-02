@@ -104,7 +104,6 @@ version": "5.0.6"
 
 Contact me here:
 
-- [GitHub Profile](https://github.com/anacecyflores1)
   <a href="mailto: anacecyflores1@gmail.com">
   <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=071A2C" alt="Gmail"/>
   </a>
