@@ -22,9 +22,14 @@
 <br>
 
 ## Description
+Our mission is to make connect the tech community to others in a fun and interactive way!
+<br>
+Interact with web developers, programmers, design artists and more!
+<br>
+post about your latest blogs, connect with other users, in a login- based tech blog app where you can create, update and save your postsfor otehr users to see. You can also comment on other posts.
+<br>
 
-<br>
-<br>
+This app was created using Bootstrap Template and adde MVC functionalities to store user's login information, comments and posts to our SQL database.
 
 ## Installation
 
@@ -61,16 +66,15 @@ run npm seed
 ## Screenshots
 
 <br>
+<img src="public/assets/home.png" alt="home page">
+<br>
+<img src="public/assets/blogpage.png" alt="blog page" >
+<br>
 <img src="public/assets/about1.png" alt="About Page 1" >
 <br>
 <br>
 <img src="public/assets/about2.png" alt="About Page 1" >
 <br>
-<br>
-<img src="public/assets/blogpage.png" alt="blog page" >
-<br>
-<br>
-<img src="public/assets/home.png" alt="home page">
 <br>
 <img src="public/assets/portfolio.png" alt="portfolio page">
 <br>
@@ -100,7 +104,6 @@ version": "5.0.6"
 
 Contact me here:
 
-- [GitHub Profile](https://github.com/anacecyflores1)
   <a href="mailto: anacecyflores1@gmail.com">
   <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white&color=071A2C" alt="Gmail"/>
   </a>
