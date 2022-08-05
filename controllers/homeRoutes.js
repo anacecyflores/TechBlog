@@ -3,6 +3,11 @@ const { Comment, User, Post } = require("../models");
 const withAuth = require("../utils/auth");
 
 // router.get("/blog", (req, res) => res.render("blog"));
+router.get("/", (req, res) => {
+  res.render("home", {
+    logged_in: req.session.logged_in,
+  });
+});
 
 router.get("/blog", async (req, res) => {
   try {
