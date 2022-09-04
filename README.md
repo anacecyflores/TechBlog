@@ -1,4 +1,4 @@
-# Tech Blog
+# Tech Blog 💻
 
 ![GitHub](https://img.shields.io/github/license/anacecyflores1/TechBlog)
 ![GitHub language count](https://img.shields.io/github/languages/count/anacecyflores1/TechBlog)
